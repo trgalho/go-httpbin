@@ -126,6 +126,7 @@ func (h *HTTPBin) Handler() http.Handler {
 	mux.HandleFunc("/forms/post", methods(h.FormsPost, "GET"))
 	mux.HandleFunc("/encoding/utf8", methods(h.UTF8, "GET"))
 
+	mux.HandleFunc("/anything", methods(h.RequestWithBody, "GET", "HEAD", "DELETE", "POST", "PATCH", "PUT", "OPTIONS"))
 	mux.HandleFunc("/delete", methods(h.RequestWithBody, "DELETE"))
 	mux.HandleFunc("/get", methods(h.Get, "GET"))
 	mux.HandleFunc("/head", methods(h.Get, "HEAD"))
